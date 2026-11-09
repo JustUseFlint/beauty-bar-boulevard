@@ -564,3 +564,7 @@ html.motion [data-chars].is-split{opacity:1}
 html.dock-hide .card-jump{bottom:calc(18px + env(safe-area-inset-bottom))}
 @media (min-width:1024px){.card-jump{display:none}}
 @media (max-width:599px){.gi figcaption{flex-direction:column;gap:2px}}
+
+.hero-st{position:absolute;top:calc(20px + env(safe-area-inset-top));left:var(--pad);z-index:6;font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.hero-foot .status{display:none}
+@media (min-width:1024px){.hero-st{display:none}.hero-foot .status{display:inline-flex}}

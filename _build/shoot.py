@@ -24,7 +24,7 @@ async def run():
                     y += 500; await page.evaluate(f'window.scrollTo(0,{y})'); await page.wait_for_timeout(120)
                     H = await page.evaluate('document.documentElement.scrollHeight')
                 await page.wait_for_timeout(1200)
-                ov = await page.evaluate('[document.documentElement.scrollWidth, window.innerWidth, [...document.querySelectorAll("body *")].filter(e=>{const r=e.getBoundingClientRect();return r.right>window.innerWidth+1 && getComputedStyle(e).position!=="fixed" && !e.closest(".mq,.reel-track,.ftr-wm,.story-track,.iris,.sheet,.peek,.tray,.toast")}).slice(0,5).map(e=>e.className||e.tagName)]')
+                ov = await page.evaluate('[window.innerWidth, document.documentElement.scrollWidth, window.innerWidth, [...document.querySelectorAll("body *")].filter(e=>{const r=e.getBoundingClientRect();return r.right>window.innerWidth+1 && getComputedStyle(e).position!=="fixed" && !e.closest(".mq,.reel-track,.ftr-wm,.story-track,.iris,.sheet,.peek,.tray,.toast")}).slice(0,5).map(e=>e.className||e.tagName)]')
                 await page.evaluate('window.scrollTo(0,0)'); await page.wait_for_timeout(1500)
                 name = (pg.strip('/').replace('.html', '') or 'home')
                 await page.screenshot(path=f'{OUT}{name}-{tag}.png', full_page=False)
